@@ -1,7 +1,7 @@
 // stickyHead v0.1 - https://github.com/exabyssus/stickyHead - MIT Licensed
 (function( $ ){
-  
-  $.stickyHead = function(op){
+
+  $.fn.stickyHead = function(op){
 
       if( ! this.length)
           return false;

@@ -1,6 +1,6 @@
 ## Sticky Head jQuery plugin
-Header scroll away normally on scroll down, shows up on scroll up. Header sticks to the top until defined offset met.
-
+Header scrolls away normally on scroll down (unless stick offset is set).
+On scroll up header comes back smoothly.
 
 ## Requirements
 
@@ -31,6 +31,15 @@ Then call the plugin.
 ## Development
 
 Pull requests are welcome!
+
+# Road map
+
+1. Remove jQuery dependency
+2. Optimize for smooth draw, even on slow computers
+2.1. Use "position:fixed" on upwards scroll
+2.2. Use hardware acceleration
+2.3. ???
+
 
 ## License
 
