@@ -14,10 +14,9 @@
       var el = $(this).eq(0);
 
       var elHeight = el.outerHeight();
-      var lstPos = 0;
 
+      var lstPos = 0;
       var dChange = 0;
-      var scroll_up_fst = true;
 
       el.css('position', 'fixed')
           .css('top', $(window).scrollTop())
