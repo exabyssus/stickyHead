@@ -5,7 +5,7 @@ On scroll up header comes back right away.
 
 ## Demo
 
-[https://exabyssus.github.io/stickyHead/demo/](https://exabyssus.github.io/stickyHead/demo/)
+[https://exabyssus.github.io/stickyHead/](https://exabyssus.github.io/stickyHead/)
 
 ## Requirements
 
