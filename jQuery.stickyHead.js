@@ -16,9 +16,10 @@
       var elHeight = el.outerHeight();
       var lstPos = 0;
 
-      var fOut = true;
+      var dChange = 0;
+      var scroll_up_fst = true;
 
-      el.css('position', 'absolute')
+      el.css('position', 'fixed')
           .css('top', $(window).scrollTop())
           .css('left', 0)
           .css('width', '100%');
@@ -27,36 +28,39 @@
           $('body').css('padding-top', elHeight);
 
 
-      $(window).on('scroll', function(e){
+      $(window).on('scroll', function(){
 
           var curPos = $(this).scrollTop();
 
           var curElPos = el.offset().top;
 
-          if(curPos < lstPos || curPos < options.topStickOffset)
+
+          if(curPos > options.topStickOffset)
           {
-              if(curPos > curElPos + elHeight && fOut)
-              {
-                  fOut = false;
+              // scroll up
+              if(curPos < lstPos) {
 
                   var offset = curPos > elHeight * 2 ? elHeight * 2 : elHeight;
 
-                  if(curPos < elHeight)
+                  if (dChange == 1)
                   {
-                      offset = 0;
+                      el.css('position', 'absolute').css('top', curPos - offset);
+                  }
+                  else if (curPos <= curElPos) {
+                      el.css('position', 'fixed').css('top', 0);
                   }
 
-                  el.css('top', curPos - offset);
+                  dChange = -1;
               }
+              // scroll down
+              else {
 
-              if(curPos < curElPos || curPos < options.topStickOffset)
-              {
-                  el.css('position', 'absolute').css('top', curPos);
+                  if(dChange == -1) {
+                      el.css('position', 'absolute').css('top', curPos);
+                  }
+
+                  dChange = 1;
               }
-          }
-          else
-          {
-              fOut = true;
           }
 
           lstPos = curPos;
